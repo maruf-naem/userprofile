@@ -8,7 +8,7 @@ const App = () => {
       <div className="header ">
         <ul className="menu">
           <li className="menuItem">
-            <NavLink to="/">User List</NavLink>
+            <NavLink to="/user-list">User List</NavLink>
           </li>
           <li className="menuItem">
             <NavLink to="/new-user">New User</NavLink>
@@ -16,7 +16,7 @@ const App = () => {
         </ul>
       </div>
       <Routes>
-        <Route path="/" element={<Userlist />} />
+        <Route path="/user-list" element={<Userlist />} />
         <Route path="/new-user" element={<NewUser />} />
       </Routes>
     </div>
