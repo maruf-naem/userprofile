@@ -1,31 +1,41 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-const AddUser = () => {
+const Edit = () => {
+  const { id } = useParams();
   const url = "http://localhost:3000/students";
+  let newUrl = `${url}/${id}`;
   const [name, setname] = useState("");
   const [roll, setRoll] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
-  async function addUser(e) {
-    e.preventDefault();
-    let res = await fetch(url, {
-      method: "post",
-      body: JSON.stringify({
-        name,
-        roll,
-        phone,
-        email,
-        address,
-      }),
-    });
+
+  async function editData() {
+    let res = await fetch(newUrl);
     res = await res.json();
-    setname("");
-    setRoll("");
-    setPhone("");
-    setEmail("");
-    setAddress("");
+    setname(res.name);
+    setRoll(res.roll);
+    setPhone(res.phone);
+    setEmail(res.email);
+    setAddress(res.address);
+    console.log(name, roll);
   }
+
+  useEffect(() => {
+    editData();
+  }, []);
+
+  async function updateData(e) {
+    e.preventDefault();
+    let res = await fetch(newUrl, {
+      method: "put",
+      body: JSON.stringify({name, roll, phone, email, address})
+    })
+    res = await res.json()
+    console.log(name, roll, phone, email, address);
+  }
+
   return (
     <div className="container">
       <div className="formContainer">
@@ -97,7 +107,7 @@ const AddUser = () => {
             ></textarea>
           </div>
 
-          <button type="submit" onClick={addUser}>
+          <button type="submit" onClick={updateData}>
             Add Student
           </button>
         </form>
@@ -106,4 +116,4 @@ const AddUser = () => {
   );
 };
 
-export default AddUser;
+export default Edit;
