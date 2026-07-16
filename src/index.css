@@ -294,3 +294,108 @@ button[type="submit"]:active {
     padding: 14px;
   }
 }
+
+
+/* Navbar */
+.navbar {
+  background: #2563eb;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Container */
+.navContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px 30px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.logo {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* Menu */
+.navMenu {
+  display: flex;
+  list-style: none;
+  gap: 18px;
+}
+
+.navMenu li {
+  list-style: none;
+}
+
+/* Links */
+.navMenu a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+/* Hover */
+.navMenu a:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* Active Link */
+.navMenu a.active {
+  background: #fff;
+  color: #2563eb;
+}
+
+/* ==========================
+   Tablet
+========================== */
+
+@media (max-width: 991px) {
+  .navContainer {
+    padding: 16px 24px;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+}
+
+/* ==========================
+   Mobile
+========================== */
+
+@media (max-width: 767px) {
+  .navContainer {
+    padding: 16px;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .navMenu {
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navMenu li {
+    width: 100%;
+  }
+
+  .navMenu a {
+    display: block;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .navMenu a.active {
+    background: #fff;
+    color: #2563eb;
+  }
+}
