@@ -1,23 +1,22 @@
 import { NavLink, Route, Routes } from "react-router-dom";
-import NewUser from "./NewUser";
-import Userlist from "./Userlist";
+import Users from "./Users";
+import AddUser from "./AddUser";
+
 
 const App = () => {
   return (
     <div>
-      <div className="header ">
-        <ul className="menu">
-          <li className="menuItem">
-            <NavLink to="/user-list">User List</NavLink>
-          </li>
-          <li className="menuItem">
-            <NavLink to="/new-user">New User</NavLink>
-          </li>
-        </ul>
-      </div>
+      <ul>
+        <li>
+          <NavLink to="/userprofile/">Users</NavLink>
+        </li>
+        <li>
+          <NavLink to=" /userprofile/add-user">Add Users</NavLink>
+        </li>
+      </ul>
       <Routes>
-        <Route path="/user-list" element={<Userlist />} />
-        <Route path="/new-user" element={<NewUser />} />
+        <Route path="/userprofile" element={<Users />} />
+        <Route path=" /userprofile/add-user" element={<AddUser />} />
       </Routes>
     </div>
   );
