@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Edit = () => {
+  const navigate = useNavigate()
   const { id } = useParams();
   const url = "http://localhost:3000/students";
   let newUrl = `${url}/${id}`;
@@ -33,7 +34,7 @@ const Edit = () => {
       body: JSON.stringify({name, roll, phone, email, address})
     })
     res = await res.json()
-    console.log(name, roll, phone, email, address);
+    navigate("/userprofile/");
   }
 
   return (
