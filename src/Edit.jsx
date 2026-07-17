@@ -109,7 +109,7 @@ const Edit = () => {
           </div>
 
           <button type="submit" onClick={updateData}>
-            Add Student
+            Update
           </button>
         </form>
       </div>

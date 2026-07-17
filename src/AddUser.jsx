@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AddUser = () => {
+  const navigate = useNavigate();
   const url = "http://localhost:3000/students";
   const [name, setname] = useState("");
   const [roll, setRoll] = useState("");
@@ -25,6 +27,7 @@ const AddUser = () => {
     setPhone("");
     setEmail("");
     setAddress("");
+    navigate("/userprofile/");
   }
   return (
     <div className="container">
